@@ -141,7 +141,9 @@ export const EditBarang = (props) => {
             Cancel
           </button>
           &nbsp;
-          <button className="btn btn-danger">Remove</button>
+          <button onClick={props.handleRemove} className="btn btn-danger">
+            Remove
+          </button>
         </form>
       </div>
     </div>

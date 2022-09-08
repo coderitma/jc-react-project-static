@@ -46,6 +46,16 @@ export const BarangManager = () => {
     setBarang({});
   };
 
+  const handleRemove = (e) => {
+    // array splice(index, 1)
+    let updateBarang = [...daftarBarang];
+    updateBarang.splice(currentID, 1);
+    setDaftarBarang(updateBarang);
+    setIsEdit(false);
+    setBarang({});
+    setCurrentID(null);
+  };
+
   return (
     <>
       <div className="container mt-5">
@@ -55,6 +65,7 @@ export const BarangManager = () => {
               <EditBarang
                 handleCancelEdit={handleCancelEdit}
                 barang={barang}
+                handleRemove={handleRemove}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
               />
