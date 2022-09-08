@@ -4,6 +4,7 @@ import {
   EditBarang,
   ListBarang,
 } from "../component/barang.component";
+import { BrandLogo } from "../component/common.component";
 
 export const BarangManager = () => {
   const [daftarBarang, setDaftarBarang] = useState([]);
@@ -58,6 +59,7 @@ export const BarangManager = () => {
 
   return (
     <>
+      <BrandLogo />
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-4">
