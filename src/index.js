@@ -1,12 +1,10 @@
 import React, { useState, useCallback } from "react";
 import ReactDOM from "react-dom/client";
-import { BarangManager } from "./features/barang.feature";
-import { PostAdmin } from "./features/post.feature";
-import { UserSignin } from "./features/user.feature";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<UserSignin />);
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

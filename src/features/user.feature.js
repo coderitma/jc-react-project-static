@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserSigninForm } from "../component/user.component";
 import { SigninUserProvider } from "../providers/user.provider";
+import { appName } from "./app.feature";
 
 export const UserSignin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +17,7 @@ export const UserSignin = () => {
         localStorage.setItem("TOKEN", `JWT ${data.token}`);
         localStorage.setItem("EMAIL", data.email);
         localStorage.setItem("IS_LOGIN", true);
+        navigate(appName.ecommerce + "/profile");
       })
       .catch((err) => alert(err));
   };
@@ -46,6 +50,28 @@ export const UserSignin = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export const UserProfile = () => {
+  const [userMeta, setUserMeta] = useState({});
+
+  useEffect(() => {
+    setUserMeta({
+      email: localStorage.getItem("EMAIL"),
+      token: localStorage.getItem("TOKEN"),
+    });
+    console.log("ini kepanggil bro!");
+  }, []);
+
+  return (
+    <>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">{JSON.stringify(userMeta)}</div>
         </div>
       </div>
     </>
